@@ -1,0 +1,157 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Container from "../../components/Container.astro";
+import Section from "../../components/Section.astro";
+import MarkRule from "../../components/MarkRule.astro";
+import Eyebrow from "../../components/Eyebrow.astro";
+import CTA from "../../components/CTA.astro";
+
+export async function getStaticPaths() {
+  const work = await getCollection("work", ({ data }) => !data.draft);
+  return work.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Base title={`${entry.data.client} — Adventurous`}>
+  <Header current="/work" />
+
+  <main>
+    <Section size="lg">
+      <Container width="prose">
+        <div class="case-head">
+          <p class="back-link"><a href="/work">&larr; Back to work</a></p>
+          <Eyebrow>{entry.data.sector}</Eyebrow>
+          <h1>{entry.data.client}</h1>
+          <MarkRule width="short" />
+          <p class="case-engagement">{entry.data.engagement}</p>
+          <div class="case-meta">
+            <div>
+              <Eyebrow>Dates</Eyebrow>
+              <p>{entry.data.dates}</p>
+            </div>
+            <div>
+              <Eyebrow>Outcome</Eyebrow>
+              <p>{entry.data.outcome_metric}</p>
+            </div>
+          </div>
+        </div>
+
+        <article class="case-body">
+          <Content />
+        </article>
+      </Container>
+    </Section>
+
+    <Section size="md" bg="subtle">
+      <Container>
+        <CTA />
+      </Container>
+    </Section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .case-head {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+  .back-link a {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--fg-2);
+    text-decoration: none;
+  }
+  .back-link a:hover {
+    color: var(--mark);
+  }
+  .case-head h1 {
+    font-family: var(--font-display);
+    font-size: clamp(54px, 8vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    margin: 0;
+  }
+  .case-engagement {
+    font-family: var(--font-sans);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--fg);
+    margin: 0;
+    max-width: 56ch;
+  }
+  .case-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--hairline);
+    margin-top: 16px;
+    max-width: 56ch;
+  }
+  .case-meta div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .case-meta p {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--fg);
+    margin: 0;
+    line-height: 1.4;
+  }
+  .case-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .case-body :global(h2) {
+    font-family: var(--font-display);
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin: 48px 0 16px 0;
+  }
+  .case-body :global(p) {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--fg);
+    margin: 0 0 16px 0;
+  }
+  .case-body :global(ul) {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--fg);
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+  }
+  .case-body :global(li) {
+    margin-bottom: 8px;
+  }
+  .case-body :global(em) {
+    font-style: italic;
+  }
+  @media (max-width: 640px) {
+    .case-meta {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

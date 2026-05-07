@@ -1,0 +1,86 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Container from "../components/Container.astro";
+import Section from "../components/Section.astro";
+import MarkRule from "../components/MarkRule.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+---
+
+<Base title="Imprint — Adventurous">
+  <Header />
+
+  <main>
+    <Section size="lg">
+      <Container width="prose">
+        <Eyebrow>Imprint</Eyebrow>
+        <h1>Legal information.</h1>
+        <MarkRule width="short" />
+
+        <div class="block">
+          <h2>Company</h2>
+          <p>
+            Adventurous Media GmbH<br />
+            Horgen, Canton Zurich<br />
+            Switzerland
+          </p>
+        </div>
+
+        <div class="block">
+          <h2>Contact</h2>
+          <p><a href="mailto:michael@adventurous.media">michael@adventurous.media</a></p>
+        </div>
+
+        <div class="block">
+          <h2>Trade name</h2>
+          <p>The legal entity is <em>Adventurous Media GmbH</em>. The brand is <em>Adventurous</em>.</p>
+        </div>
+
+        <div class="block">
+          <h2>Liability</h2>
+          <p>
+            The content of this site has been prepared with care. We accept no liability for the accuracy, completeness, or current relevance of the information provided. External links are reviewed at the time of placement; we have no control over their later content.
+          </p>
+        </div>
+      </Container>
+    </Section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  h1 {
+    font-family: var(--font-display);
+    font-size: 60px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 16px 0 0 0;
+  }
+  .block {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .block h2 {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--fg-2);
+    margin: 0;
+  }
+  .block p {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--fg);
+    margin: 0;
+  }
+  .block a {
+    color: var(--mark);
+  }
+</style>

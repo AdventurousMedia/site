@@ -1,0 +1,73 @@
+---
+import MarkRule from "./MarkRule.astro";
+
+interface Props {
+  heading?: string;
+  body?: string;
+  buttonLabel?: string;
+  href?: string;
+}
+
+const {
+  heading = "Start a conversation.",
+  body = "Most engagements begin with a single short call. Bring a question or a tension; leave with a frame.",
+  buttonLabel = "michael@adventurous.media",
+  href = "mailto:michael@adventurous.media",
+} = Astro.props;
+---
+
+<div class="cta">
+  <MarkRule width="short" />
+  <h2 class="cta-heading">{heading}</h2>
+  <p class="cta-body">{body}</p>
+  <a href={href} class="cta-button">{buttonLabel}</a>
+</div>
+
+<style>
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: 56ch;
+  }
+  .cta-heading {
+    font-family: var(--font-display);
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0;
+  }
+  .cta-body {
+    font-size: 19px;
+    color: var(--fg-2);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .cta-button {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--fg);
+    background: transparent;
+    border: 1px solid var(--fg);
+    padding: 14px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background var(--dur-base) var(--ease), color var(--dur-base) var(--ease);
+  }
+  .cta-button:hover {
+    background: var(--fg);
+    color: var(--fg-inverse);
+  }
+  @media (max-width: 640px) {
+    .cta-heading {
+      font-size: 33px;
+    }
+    .cta-body {
+      font-size: 17px;
+    }
+  }
+</style>

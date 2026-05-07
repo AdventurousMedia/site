@@ -1,0 +1,31 @@
+---
+interface Props {
+  size?: "sm" | "md" | "lg";
+  bg?: "default" | "subtle" | "inverse";
+  class?: string;
+}
+const { size = "md", bg = "default", class: className = "" } = Astro.props;
+---
+
+<section class:list={["section", `is-${size}`, `bg-${bg}`, className]}>
+  <slot />
+</section>
+
+<style>
+  .section {
+    width: 100%;
+  }
+  .section.is-sm { padding: 48px 0; }
+  .section.is-md { padding: 96px 0; }
+  .section.is-lg { padding: 128px 0; }
+
+  .section.bg-default { background: var(--bg); color: var(--fg); }
+  .section.bg-subtle { background: var(--bg-subtle); color: var(--fg); }
+  .section.bg-inverse { background: var(--bg-inverse); color: var(--fg-inverse); }
+
+  @media (max-width: 768px) {
+    .section.is-sm { padding: 32px 0; }
+    .section.is-md { padding: 64px 0; }
+    .section.is-lg { padding: 96px 0; }
+  }
+</style>

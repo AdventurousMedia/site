@@ -1,0 +1,232 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Container from "../components/Container.astro";
+import Section from "../components/Section.astro";
+import MarkRule from "../components/MarkRule.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import CTA from "../components/CTA.astro";
+
+const intents = [
+  {
+    n: "01",
+    intent: "Executive voice that compounds.",
+    pain: "Senior leaders sound different in every channel, every quarter. The voice resets every time someone joins, leaves, or rotates. Stakeholders cannot place the firm without the firm telling them where to look.",
+    architecture:
+      "We build the editorial system that produces executive voice consistently — across podcasts, town halls, written commentary, video interviews, and stakeholder updates. Not ghostwriting. Not media training. The architecture: voice principles, production calendar, stakeholder map, post-publication measurement.",
+    engagement: "Six-month embedded retainer.",
+    client: "Julius Baer",
+    clientDetail: "Moving Markets · daily · 18+ months sustained",
+  },
+  {
+    n: "02",
+    intent: "Internal cadence that holds.",
+    pain: "Internal comms volume is up; quality varies. Each region runs its own format. The HQ-to-region signal gets lost. Leadership transitions reset everything.",
+    architecture:
+      "We build the production system for internal comms that scales across regions and formats without diluting. Editorial standards, regional templates, cross-channel measurement. Sit alongside the in-house team — not above, not in place of.",
+    engagement: "Three-to-six months for the architecture; advisory retainer thereafter.",
+    client: "Nestlé",
+    clientDetail: "Gazette · video newsletter · internal · multi-region",
+  },
+  {
+    n: "03",
+    intent: "Strategic audio as compounding asset.",
+    pain: "There is a podcast. It is a marketing line item, not a strategic asset. The daily or weekly cadence does not move stakeholder thinking, and nobody can prove it does.",
+    architecture:
+      "Treat the audio output as a strategic asset, not a content channel. Production discipline, editorial calendar tied to corporate priorities, measurement that maps to stakeholder objectives. The Moving Markets template, adapted to your context.",
+    engagement: "Production retainer plus strategy retainer — separable, usually paired.",
+    client: "Julius Baer",
+    clientDetail: "Moving Markets (daily) and View Beyond (weekly)",
+  },
+];
+---
+
+<Base title="Services — Adventurous">
+  <Header current="/services" />
+
+  <main>
+    <Section size="lg">
+      <Container>
+        <div class="page-hero">
+          <Eyebrow>What enterprise comms heads bring us</Eyebrow>
+          <h1>Three operating problems we fix at the architecture level.</h1>
+          <p class="sub">
+            Engagements usually start as a single project, then evolve into retainer when the system proves itself. We don&rsquo;t pitch concepts. We don&rsquo;t run quarterly campaigns.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <Section size="md" bg="subtle">
+      <Container>
+        <ol class="intents">
+          {intents.map((it) => (
+            <li class="intent">
+              <div class="intent-number">{it.n}</div>
+              <div class="intent-body">
+                <h2 class="intent-title">{it.intent}</h2>
+                <MarkRule width="short" />
+
+                <div class="block">
+                  <Eyebrow>The operating pain</Eyebrow>
+                  <p>{it.pain}</p>
+                </div>
+
+                <div class="block">
+                  <Eyebrow>The architecture</Eyebrow>
+                  <p>{it.architecture}</p>
+                </div>
+
+                <div class="meta">
+                  <div class="meta-col">
+                    <Eyebrow>Typical engagement</Eyebrow>
+                    <p class="meta-text">{it.engagement}</p>
+                  </div>
+                  <div class="meta-col">
+                    <Eyebrow>Currently with</Eyebrow>
+                    <p class="meta-client">{it.client}</p>
+                    <p class="meta-detail">{it.clientDetail}</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </Section>
+
+    <Section size="md">
+      <Container>
+        <CTA
+          heading="Bring an operating problem."
+          body="Most engagements begin with a 30-minute call. Bring the question that nobody internally has time to answer. We&rsquo;ll bring a frame and the next move."
+        />
+      </Container>
+    </Section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .page-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 5.5vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 18ch;
+  }
+  .sub {
+    font-family: var(--font-sans);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  .intents {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+  }
+  .intent {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .intent-number {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--mark);
+    line-height: 1;
+    padding-top: 12px;
+  }
+  .intent-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .intent-title {
+    font-family: var(--font-display);
+    font-size: clamp(33px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0;
+    max-width: 22ch;
+  }
+  .block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 64ch;
+  }
+  .block p {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--fg);
+    margin: 0;
+  }
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--hairline);
+    max-width: 64ch;
+  }
+  .meta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .meta-text {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--fg-2);
+    margin: 0;
+    line-height: 1.4;
+  }
+  .meta-client {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0;
+    line-height: 1.1;
+  }
+  .meta-detail {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--fg-2);
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .intents {
+      gap: 64px;
+    }
+    .intent {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .meta {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

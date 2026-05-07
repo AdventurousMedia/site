@@ -1,0 +1,81 @@
+---
+const { current = "" } = Astro.props as { current?: string };
+const items = [
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+  { href: "/notes", label: "Notes" },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="wordmark" aria-label="Adventurous home">Adventurous</a>
+    <nav aria-label="Primary">
+      <ul>
+        {items.map((it) => (
+          <li>
+            <a href={it.href} class:list={["nav-link", current === it.href && "is-current"]}>
+              {it.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--hairline);
+    background: var(--bg);
+  }
+  .header-inner {
+    max-width: var(--content);
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--fg);
+    text-decoration: none;
+  }
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-link {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .nav-link.is-current {
+    color: var(--mark);
+  }
+  .nav-link:hover {
+    color: var(--mark);
+  }
+  @media (max-width: 640px) {
+    .header-inner {
+      padding: 20px 24px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    nav ul {
+      gap: 20px;
+    }
+  }
+</style>

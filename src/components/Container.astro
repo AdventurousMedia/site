@@ -1,0 +1,31 @@
+---
+interface Props {
+  width?: "content" | "prose";
+  class?: string;
+}
+const { width = "content", class: className = "" } = Astro.props;
+---
+
+<div class:list={["container", `is-${width}`, className]}>
+  <slot />
+</div>
+
+<style>
+  .container {
+    margin: 0 auto;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .container.is-content {
+    max-width: var(--content);
+  }
+  .container.is-prose {
+    max-width: var(--measure);
+  }
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+</style>

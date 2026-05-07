@@ -1,0 +1,21 @@
+---
+interface Props {
+  width?: "short" | "long" | "full";
+  class?: string;
+}
+const { width = "short", class: className = "" } = Astro.props;
+---
+
+<hr class:list={["mark-rule", `is-${width}`, className]} aria-hidden="true" />
+
+<style>
+  .mark-rule {
+    border: none;
+    height: 2px;
+    background: var(--mark);
+    margin: 0;
+  }
+  .mark-rule.is-short { width: 48px; }
+  .mark-rule.is-long { width: 96px; }
+  .mark-rule.is-full { width: 100%; }
+</style>

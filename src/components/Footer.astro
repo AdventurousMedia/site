@@ -1,0 +1,119 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="col">
+      <div class="wordmark">Adventurous</div>
+      <hr class="mark-rule" />
+      <p class="legal">Adventurous Media GmbH · Horgen, Switzerland</p>
+    </div>
+
+    <div class="col">
+      <p class="eyebrow">Contact</p>
+      <p class="footer-text">
+        <a href="mailto:michael@adventurous.media">michael@adventurous.media</a>
+      </p>
+    </div>
+
+    <div class="col">
+      <p class="eyebrow">Elsewhere</p>
+      <p class="footer-text">
+        <a href="https://www.linkedin.com/in/michaelreaney" rel="me noopener" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-base">
+    <span>© {year} Adventurous Media GmbH</span>
+    <a href="/imprint" class="footer-base-link">Imprint</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 128px;
+    padding: 64px 32px 32px;
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-inner {
+    max-width: var(--content);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--fg-2);
+    line-height: 1;
+    margin: 0;
+  }
+  .legal {
+    font-size: 14px;
+    color: var(--fg-2);
+    margin: 0;
+  }
+  .footer-text {
+    font-size: 17px;
+    color: var(--fg);
+    margin: 0;
+  }
+  .footer-text a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .footer-text a:hover {
+    color: var(--mark);
+  }
+  .footer-base {
+    max-width: var(--content);
+    margin: 64px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--fg-3);
+  }
+  .footer-base-link {
+    color: var(--fg-3);
+    text-decoration: none;
+  }
+  .footer-base-link:hover {
+    color: var(--fg);
+  }
+  @media (max-width: 768px) {
+    .site-footer {
+      margin-top: 96px;
+      padding: 48px 24px 24px;
+    }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .footer-base {
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 48px;
+    }
+  }
+</style>

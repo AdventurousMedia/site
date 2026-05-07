@@ -1,0 +1,90 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+
+interface Client {
+  name: string;
+  detail?: string;
+}
+
+interface Props {
+  label?: string;
+  clients?: Client[];
+}
+
+const {
+  label = "Embedded with",
+  clients = [
+    { name: "Julius Baer", detail: "Moving Markets · daily" },
+    { name: "Nestlé", detail: "Gazette · internal" },
+  ],
+} = Astro.props;
+---
+
+<div class="proof-row">
+  <Eyebrow>{label}</Eyebrow>
+  <ul class="logos">
+    {clients.map((c) => (
+      <li class="logo-item">
+        <span class="client-name">{c.name}</span>
+        {c.detail && <span class="client-detail">{c.detail}</span>}
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .proof-row {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .logos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .logo-item {
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid var(--hairline);
+  }
+  .logo-item:last-child {
+    border-right: none;
+  }
+  .client-name {
+    font-family: var(--font-display);
+    font-size: 33px;
+    font-weight: 600;
+    color: var(--fg);
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+  .client-detail {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--fg-2);
+  }
+  @media (max-width: 640px) {
+    .logos {
+      grid-template-columns: 1fr;
+    }
+    .logo-item {
+      padding: 24px;
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .logo-item:last-child {
+      border-bottom: none;
+    }
+    .client-name {
+      font-size: 28px;
+    }
+  }
+</style>

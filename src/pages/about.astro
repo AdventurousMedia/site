@@ -1,0 +1,153 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Container from "../components/Container.astro";
+import Section from "../components/Section.astro";
+import MarkRule from "../components/MarkRule.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<Base title="About — Adventurous">
+  <Header current="/about" />
+
+  <main>
+    <Section size="lg">
+      <Container width="prose">
+        <div class="essay-head">
+          <Eyebrow>About</Eyebrow>
+          <h1>Why we treat communications as architecture.</h1>
+          <MarkRule width="short" />
+        </div>
+
+        <article class="essay">
+          <p class="lede">
+            Most enterprises have spent the last decade adding communications surface area: more channels, more formats, more languages, more regional autonomy, more measurement dashboards. The teams running it are good. The output is voluminous. And the strategic register &mdash; the felt sense that the firm is led by a coherent voice with a coherent point of view &mdash; has thinned, not thickened. Not because anyone is doing anything wrong. Because nobody is responsible for the operating layer beneath all of it.
+          </p>
+
+          <p>
+            Communications Architecture is the discipline that fills that gap. It is not creative direction, not internal comms strategy, not media relations, not editorial. It is the system underneath those functions: voice principles, production calendar, stakeholder map, measurement layer. When the architecture is right, the in-house team is faster. The executive voice compounds. Internal cadence holds across regions. Output stops resetting every quarter.
+          </p>
+
+          <h2>How we got here.</h2>
+
+          <p>
+            Adventurous started as a podcast production firm in 2019. Two clients early on &mdash; Julius Baer and Nestl&eacute; &mdash; bought what looked like a content service. By year three, both were buying something different: editorial standards that travelled across formats, a production calendar that survived leadership change, voice consistency that compounded over hundreds of episodes. The label stopped fitting the work.
+          </p>
+
+          <p>
+            The repositioning to Communications Architecture happened in early 2026. It was a renaming of work that had already evolved, not a pivot. The wedge &mdash; executive voice, editorial discipline, intelligent systems beneath the team &mdash; was the wedge that had been doing the heavy lifting for years. What changed: the language we use, the buyers we look for, the projects we accept. We stopped selling production. We started selling the architecture.
+          </p>
+
+          <h2>What we don&rsquo;t do.</h2>
+
+          <p>
+            Adventurous doesn&rsquo;t pitch concepts and doesn&rsquo;t run campaigns. We don&rsquo;t write LinkedIn ghost-posts. We don&rsquo;t run quarterly content sprints. We don&rsquo;t replace in-house teams. We embed alongside them and build the system that makes their work compound. If a brief asks for a deck of creative concepts, the answer is no. If it asks for an operating layer that survives the next CEO transition, that&rsquo;s the work.
+          </p>
+
+          <h2>Who this is for.</h2>
+
+          <p>
+            Heads of Communications and CCOs at European enterprises &mdash; particularly the ones managing the AI transition in their function while output expectations rise and headcount holds flat. If you have been told you need another agency, you probably don&rsquo;t. If you suspect what you actually need is the layer beneath the agencies you already have, that&rsquo;s where this conversation starts.
+          </p>
+        </article>
+
+        <div class="founder-card">
+          <MarkRule width="short" />
+          <div class="founder-name">Michael Reaney</div>
+          <div class="founder-role">Founder, Adventurous Media GmbH</div>
+          <div class="founder-loc">Horgen, Switzerland</div>
+          <div class="founder-contact">
+            <a href="mailto:michael@adventurous.media">michael@adventurous.media</a>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <Section size="md" bg="subtle">
+      <Container>
+        <CTA />
+      </Container>
+    </Section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .essay-head {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .essay-head h1 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    margin: 0;
+  }
+  .essay {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .essay .lede {
+    font-family: var(--font-sans);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--fg);
+    margin: 0;
+  }
+  .essay p {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--fg);
+    margin: 0;
+  }
+  .essay h2 {
+    font-family: var(--font-display);
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin: 32px 0 0 0;
+  }
+  .founder-card {
+    margin-top: 64px;
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .founder-card .mark-rule {
+    margin-bottom: 16px;
+  }
+  .founder-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--fg);
+    line-height: 1.2;
+  }
+  .founder-role,
+  .founder-loc {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--fg-2);
+  }
+  .founder-contact {
+    margin-top: 12px;
+    font-size: 17px;
+  }
+  .founder-contact a {
+    color: var(--mark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
