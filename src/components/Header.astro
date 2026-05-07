@@ -1,5 +1,5 @@
 ---
-const { current = "" } = Astro.props as { current?: string };
+const { current = "", overlay = false } = Astro.props as { current?: string; overlay?: boolean };
 const items = [
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
@@ -7,7 +7,7 @@ const items = [
 ];
 ---
 
-<header class="site-header">
+<header class:list={["site-header", overlay && "is-overlay"]}>
   <div class="header-inner">
     <a href="/" class="wordmark" aria-label="Adventurous home">
       <img src="/assets/mark.svg" alt="" class="mark" width="22" height="22" aria-hidden="true" />
@@ -31,6 +31,13 @@ const items = [
   .site-header {
     border-bottom: 1px solid var(--hairline);
     background: var(--bg);
+  }
+  .site-header.is-overlay {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 10;
+    border-bottom: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
   }
   .header-inner {
     max-width: var(--content);
@@ -71,6 +78,9 @@ const items = [
     font-weight: 500;
     color: var(--fg);
     text-decoration: none;
+  }
+  .is-overlay .nav-link {
+    color: var(--fg-inverse);
   }
   .nav-link.is-current {
     color: var(--mark);
