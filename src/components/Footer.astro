@@ -5,7 +5,7 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="col">
-      <div class="wordmark">Adventurous</div>
+      <img src="/assets/wordmark-black-h480.png" alt="Adventurous" class="footer-wordmark" width="216" height="28" />
       <hr class="mark-rule" />
       <p class="legal">Adventurous Media GmbH · Horgen, Switzerland</p>
     </div>
@@ -49,12 +49,11 @@ const year = new Date().getFullYear();
     flex-direction: column;
     gap: 12px;
   }
-  .wordmark {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--fg);
+  .footer-wordmark {
+    height: 28px;
+    width: auto;
+    align-self: flex-start;
+    display: block;
   }
   .eyebrow {
     font-family: var(--font-sans);
