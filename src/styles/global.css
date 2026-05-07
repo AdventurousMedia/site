@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens — generated from 3-marketing/brand-guidelines.md (May 2026).
+ * Tailwind v4 @theme directive exposes these to utility classes.
+ */
+@theme {
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #FAF9F5;
+  --color-ink: #141413;
+  --color-ink-dark: #0C0C0B;
+  --color-ink-dark-fg: #F5F4EF;
+  --color-mark: #F93D02;
+  --color-fg-2: rgba(20, 20, 19, 0.72);
+  --color-fg-3: rgba(20, 20, 19, 0.48);
+  --color-hairline: rgba(20, 20, 19, 0.12);
+
+  --font-display: "Source Serif 4", "Times New Roman", Georgia, serif;
+  --font-sans: "Source Sans 3", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "IBM Plex Mono", monospace;
+
+  --text-h1: 60px;
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.015em;
+  --text-h2: 42px;
+  --text-h2--line-height: 1.18;
+  --text-h2--letter-spacing: -0.005em;
+  --text-h3: 33px;
+  --text-h3--line-height: 1.18;
+  --text-h3--letter-spacing: -0.005em;
+  --text-h4: 22px;
+  --text-h4--line-height: 1.30;
+  --text-body: 17px;
+  --text-body--line-height: 1.55;
+  --text-body-lg: 19px;
+  --text-body-lg--line-height: 1.55;
+  --text-small: 14px;
+  --text-caption: 12px;
+  --text-caption--line-height: 1.30;
+  --text-caption--letter-spacing: 0.02em;
+  --text-eyebrow: 12px;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.14em;
+  --text-metric: 128px;
+  --text-metric--line-height: 0.95;
+  --text-metric--letter-spacing: -0.02em;
+
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-DEFAULT: 4px;
+  --radius-pill: 9999px;
+}
+
+/* Direct CSS-variable access for raw component styles */
+:root {
+  --bg: #FFFFFF;
+  --bg-subtle: #FAF9F5;
+  --bg-inverse: #141413;
+  --fg: #141413;
+  --fg-1: #141413;
+  --fg-2: rgba(20, 20, 19, 0.72);
+  --fg-3: rgba(20, 20, 19, 0.48);
+  --fg-inverse: #F5F4EF;
+  --mark: #F93D02;
+  --hairline: rgba(20, 20, 19, 0.12);
+  --measure: 68ch;
+  --content: 1200px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+  --dur-logo: 1500ms;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 60px;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: 42px;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 33px;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 1.30;
+}
+
+a {
+  color: var(--mark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+hr.mark-rule {
+  border: none;
+  height: 2px;
+  background: var(--mark);
+  width: 48px;
+  margin: 0;
+}
+
+hr.hairline {
+  border: none;
+  height: 1px;
+  background: var(--hairline);
+  width: 100%;
+  margin: 0;
+}
