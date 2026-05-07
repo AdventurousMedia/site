@@ -10,7 +10,8 @@ const items = [
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="wordmark" aria-label="Adventurous home">
-      <img src="/assets/wordmark-black-h480.png" alt="Adventurous" width="170" height="22" />
+      <img src="/assets/mark.svg" alt="" class="mark" width="22" height="22" aria-hidden="true" />
+      <img src="/assets/wordmark-vermilion-h480.png" alt="Adventurous" class="logotype" width="170" height="22" />
     </a>
     <nav aria-label="Primary">
       <ul>
@@ -43,10 +44,16 @@ const items = [
   .wordmark {
     display: inline-flex;
     align-items: center;
+    gap: 12px;
     text-decoration: none;
     line-height: 1;
   }
-  .wordmark img {
+  .wordmark .mark {
+    height: 22px;
+    width: 22px;
+    display: block;
+  }
+  .wordmark .logotype {
     height: 22px;
     width: auto;
     display: block;

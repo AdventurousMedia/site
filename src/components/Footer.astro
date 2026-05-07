@@ -5,7 +5,10 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="col">
-      <img src="/assets/wordmark-black-h480.png" alt="Adventurous" class="footer-wordmark" width="216" height="28" />
+      <div class="footer-lockup">
+        <img src="/assets/mark.svg" alt="" class="footer-mark" width="28" height="28" aria-hidden="true" />
+        <img src="/assets/wordmark-vermilion-h480.png" alt="Adventurous" class="footer-wordmark" width="216" height="28" />
+      </div>
       <hr class="mark-rule" />
       <p class="legal">Adventurous Media GmbH · Horgen, Switzerland</p>
     </div>
@@ -49,10 +52,20 @@ const year = new Date().getFullYear();
     flex-direction: column;
     gap: 12px;
   }
+  .footer-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-start;
+  }
+  .footer-mark {
+    height: 28px;
+    width: 28px;
+    display: block;
+  }
   .footer-wordmark {
     height: 28px;
     width: auto;
-    align-self: flex-start;
     display: block;
   }
   .eyebrow {
